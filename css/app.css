@@ -13,6 +13,29 @@ body {
 	display: flex;
 	background: #f8f8fa;
 }
+button {
+    border: 2px solid #98007f;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-color: #cb00a9;
+    box-shadow: inset -1px 3px 0px rgba(255, 255, 255, 0.5),
+      2px 3px 2px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.1s;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+  }
+  button:hover {
+    background-color: #cf3db7;
+    border: 2px solid #c949b3;
+    transform: scale(1.1);
+  }
+  button:active {
+    transform: scale(1);
+  }
 
 .page {
 	width: 100%;
@@ -45,28 +68,66 @@ body {
 	object-fit: cover;
 	cursor: pointer;
 }
-.page__image__rounded {
-	border-radius: 10px;
-}
 
 :root{
     --cell-size:100px;
     --mark-size:calc(var(--cell-size)*0.9);
 }
-.visualbox{
-    padding: 10px;
-}
 
 .title{
     font-size: 30px;
     color:black;
-	border-bottom: 1px solid #ececec;;
+	border-bottom: 1px solid #ececec;
 }
 .field{
 	color: #c4c4c4;
 }
 .ticTacToe{
     position: relative;
+}
+.ticTacToe__title{
+    margin-bottom: 10px;
+    text-align: center;
+}
+.ticTacToe__content{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+}
+.ticTacToe__restartBtn{
+    width: 250px;
+    padding: 15px;
+    justify-self: center;
+    margin: 20px 0;
+}
+.ticTacToe__score{
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+}
+.gameMessages{
+    overflow-y: scroll;
+    height: 400px;
+    grid-row-start: span 3;
+}
+.gameMessages__message{
+    padding: 0 0 0 5px;
+}
+.gameMessages__container{
+    margin: 15px 0;
+}
+.gameMessages__title{
+    font-size: 18px;
+    padding: 5px;
+    border-bottom: 1px solid #ececec;
+}
+.gameMessages__title--win{
+    background-color: rgba(170, 255, 0, 0.2);
+}
+.gameMessages__title--lose{
+    background-color: rgba(252, 0, 0, 0.2);
+}
+.gameMessages__title--draw{
+    background-color: rgba(214, 252, 0, 0.2);
 }
 .gameGrid{
     display: grid;
