@@ -25,7 +25,6 @@ export class ComputerProfi extends Player {
     constructor(options) {
         super(options);
         this.maxDepth = options.maxDepth || 1000;
-        console.log(this.maxDepth);
     }
 
     //при переходе хода на компьютера
@@ -99,6 +98,7 @@ export class ComputerProfi extends Player {
             }
         }
 
+        //ходим по точке
         this.gameMoveTo(movePoint.x, movePoint.y);
     }
 

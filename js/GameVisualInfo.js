@@ -5,16 +5,17 @@
 //информация об игре, с историями игр
 export default class GameVisualInfo {
     constructor(game) {
-        this.game = game;
-        this.gamesListElem = [];
-        this.gameMessagesElem = document.querySelector('.gameMessages');
-        this.bottomMsgElem = document.querySelector('.bottomMessage__message');
-        this.scoreElem = document.querySelector('.ticTacToe__score');
-        this.createRestartBtn(game);
-        this.createGameModeSelector(game);
+        this.game = game; // ссылка на игру
+        this.gamesListElem = []; // список истории игр
+        this.gameMessagesElem = document.querySelector('.gameMessages'); // ссобщения
+        this.bottomMsgElem = document.querySelector('.bottomMessage__message'); // сообщение снизу поля
+        this.scoreElem = document.querySelector('.ticTacToe__score'); // счет
+        this.createRestartBtn(game); // создание кнопки повтора
+        this.createGameModeSelector(game); // создание селектора игоровогых режимов
 
         this.cellsElem = document.querySelectorAll('.gameGrid__cell'); // html разметки клеток
 
+        //подписываемся на события
         document.addEventListener('startGame', (e) => {
             this.onStartGame(e.detail);
         });

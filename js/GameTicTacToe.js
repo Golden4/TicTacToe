@@ -79,6 +79,7 @@ export default class GameTicTacToe {
     startGame() {
         this.initPlayers(this.playersTemplateIndex);//инициализация игроков
         this.state = 'play'; // измение состояниие компонента
+        this.gameCount = 0;
         this.reset();
         //вызываем эвент начала игры
         const event = new CustomEvent('startGame');
@@ -87,7 +88,7 @@ export default class GameTicTacToe {
 
     reset() {
         this.createMap(); // очистка карты
-        this.playerMove = (this.gameCount % 2);//(индекс + 1) игрока, кто первым ходит
+        this.playerMove = ((this.gameCount + 1) % 2);//индекс игрока, кто первым ходит
         this.xoIndex = 1;//в начале хода ставится 1 - X или 0 - О
         this.gameCount++;//увеличиваем кол-во игр
         this.nextMove();//передаем ход
