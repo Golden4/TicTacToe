@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/app.css">
-    <script src="js/app.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
     <title>Tensor School Tic Tac Toe</title>
 </head>
 
@@ -18,29 +18,22 @@
                         Крестики Нолики
                     </div>
                     <div class="ticTacToe__content">
+
+                        <p class="ticTacToe__gameModeSelector">
+                            <select>
+                                <option>Выберите героя</option>
+                                <option value="Чебурашка">Чебурашка</option>
+                                <option selected value="Крокодил Гена">Крокодил Гена</option>
+                                <option value="Шапокляк">Шапокляк</option>
+                                <option value="Крыса Лариса">Крыса Лариса</option>
+                            </select>
+                        </p>
+
                         <div class="ticTacToe__score">
-                            <!-- Счет: (Вы) <strong>1 : 2</strong> (Компьютер) -->
+
                         </div>
 
                         <div class="gameMessages">
-
-                            <!-- <div class="gameMessages__container">
-                                <div class="gameMessages__title">
-                                    Игра 1 - Вы победили (Х)
-                                </div>
-                                <p class="gameMessages__message">
-                                    Вы сделал(и) ход X 1,1
-                                </p>
-                                <p class="gameMessages__message">
-                                    Компьютер - ход О 1,1
-                                </p>
-                                <p class="gameMessages__message">
-                                    X (Вы) сделал ход 1,5
-                                </p>
-                                <p class="gameMessages__message">
-                                    X (Вы) победил
-                                </p>
-                            </div> -->
                         </div>
                         <div class="gameGrid">
                             <div class="gameGrid__cell"></div>
@@ -53,11 +46,14 @@
                             <div class="gameGrid__cell"></div>
                             <div class="gameGrid__cell"></div>
                         </div>
-
-
-                        <button class="ticTacToe__restartBtn">
-                            Повторить
-                        </button>
+                        <div class="bottomMessage">
+                            <p class="bottomMessage__message">
+                                Делает ход X (Компьютер)
+                            </p>
+                            <button class="ticTacToe__restartBtn">
+                                Повторить
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

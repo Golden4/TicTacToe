@@ -20,22 +20,22 @@ button {
     background-repeat: no-repeat;
     background-color: #cb00a9;
     box-shadow: inset -1px 3px 0px rgba(255, 255, 255, 0.5),
-      2px 3px 2px rgba(0, 0, 0, 0.15);
+        2px 3px 2px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: all 0.1s;
     outline: none;
     border-radius: 10px;
     color: white;
     font-size: 20px;
-  }
-  button:hover {
+}
+button:hover {
     background-color: #cf3db7;
     border: 2px solid #c949b3;
     transform: scale(1.1);
-  }
-  button:active {
+}
+button:active {
     transform: scale(1);
-  }
+}
 
 .page {
 	width: 100%;
@@ -93,16 +93,22 @@ button {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
 }
-.ticTacToe__restartBtn{
-    width: 250px;
-    padding: 15px;
-    justify-self: center;
-    margin: 20px 0;
-}
 .ticTacToe__score{
     text-align: center;
     padding: 15px;
     font-size: 20px;
+}
+.ticTacToe__restartBtn{
+    width: 250px;
+    padding: 15px;
+    justify-self: center;
+    margin: 10px 0;
+}
+.ticTacToe__gameModeSelector{
+    grid-column-start: span 2;
+    display: flex;
+    justify-content: center;
+    
 }
 .gameMessages{
     overflow-y: scroll;
@@ -116,6 +122,7 @@ button {
     margin: 15px 0;
 }
 .gameMessages__title{
+    font-weight: bold;
     font-size: 18px;
     padding: 5px;
     border-bottom: 1px solid #ececec;
@@ -129,6 +136,23 @@ button {
 .gameMessages__title--draw{
     background-color: rgba(214, 252, 0, 0.2);
 }
+.bottomMessage{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.bottomMessage__message{
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .gameGrid{
     display: grid;
     justify-content: center;
@@ -179,35 +203,69 @@ button {
     position: relative;
 }
 
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after,
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
+    background-color: #e1a9ff;
+}
 .gameGrid__cell--x::after,
 .gameGrid__cell--x::before{
-    content: '';
-    position: absolute;
-    width: calc(var(--mark-size)* .15);
-    height: var(--mark-size);
     background-color: #a600ff;
 }
-.gameGrid__cell--x::after{
-    transform: rotate(45deg);
-}
-.gameGrid__cell--x::before{
-    transform: rotate(-45deg);
+
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after,
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
+    border-color:  #e1a9ff;
 }
 
 .gameGrid__cell--o::after,
 .gameGrid__cell--o::before{
+    
+    border-color: #a600ff;
+}
+
+.gameGrid__cell--highlight{
+    background-color: #bfd0ff;
+}
+
+.gameGrid__cell--x::after,
+.gameGrid__cell--x::before,
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after,
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size)* .15);
+    height: var(--mark-size);
+}
+
+.gameGrid__cell--x::after,
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after{
+    transform: rotate(45deg);
+}
+.gameGrid__cell--x::before,
+.gameGrid--x .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
+    transform: rotate(-45deg);
+}
+
+
+.gameGrid__cell--o::after,
+.gameGrid__cell--o::before,
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after,
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
     content: '';
     position: absolute;
     border-radius: 50%;
 }
-.gameGrid__cell--o::before{
+.gameGrid__cell--o::before,
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::before{
     width: var(--mark-size);
     height: var(--mark-size);
-    background-color: #a600ff;
 }
-.gameGrid__cell--o::after{
+.gameGrid__cell--o::after,
+.gameGrid--o .gameGrid__cell:not(.gameGrid__cell--x):not(.gameGrid__cell--o):hover::after{
     width: calc(var(--mark-size)*0.7);
     height: calc(var(--mark-size)*0.7);
-    background-color: white;
+    /* background-color: white; */
+    border-width: calc((var(--mark-size) - var(--mark-size)*0.7)/2);
+    border-style: solid;
 }
 
